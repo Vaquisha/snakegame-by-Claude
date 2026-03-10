@@ -1,0 +1,190 @@
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes pop {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes flashRed {
+  0%, 100% { background: #0a0a0f; }
+  50% { background: #3a0a0f; }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.snake-container {
+  min-height: 100vh;
+  background: #0a0a0f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Courier New", monospace;
+  user-select: none;
+  padding: 20px;
+}
+
+.snake-header {
+  margin-bottom: 24px;
+  text-align: center;
+  animation: slideIn 0.5s ease;
+}
+
+.snake-subtitle {
+  font-size: 11px;
+  letter-spacing: 8px;
+  color: #00ff8866;
+  margin-bottom: 4px;
+}
+
+.snake-title {
+  font-size: 36px;
+  font-weight: 900;
+  color: #00ff88;
+  letter-spacing: 4px;
+  text-shadow: 0 0 20px #00ff8888;
+}
+
+.snake-scores {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+.score-box {
+  text-align: center;
+}
+
+.score-label {
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: #00ff8855;
+}
+
+.score-value {
+  font-size: 28px;
+  font-weight: 900;
+  color: #00ff88;
+  text-shadow: 0 0 10px #00ff8866;
+  min-width: 60px;
+}
+
+.snake-grid {
+  position: relative;
+  border: 2px solid #00ff8833;
+  box-shadow: 0 0 40px #00ff8811, inset 0 0 40px #00000044;
+  background: #05050a;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.snake-grid-flash {
+  animation: flashRed 0.4s ease;
+}
+
+.snake-grid-lines {
+  position: absolute;
+  inset: 0;
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+.grid-cell-food {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ff6644, #ff2200);
+  box-shadow: 0 0 10px #ff440088;
+  animation: pulse 0.8s infinite;
+}
+
+.snake-segment {
+  position: absolute;
+  transition: left 0.08s, top 0.08s;
+}
+
+.snake-head {
+  z-index: 2;
+}
+
+.snake-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffdd44;
+  box-shadow: 0 0 6px #ffdd44;
+  animation: pop 0.5s ease-out forwards;
+  pointer-events: none;
+}
+
+.snake-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 5, 10, 0.88);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.game-over-text {
+  font-size: 22px;
+  font-weight: 900;
+  color: #ff4422;
+  letter-spacing: 3px;
+  text-shadow: 0 0 20px #ff442288;
+}
+
+.overlay-text {
+  font-size: 11px;
+  color: #00ff8888;
+  letter-spacing: 3px;
+}
+
+.snake-button {
+  margin-top: 8px;
+  padding: 10px 28px;
+  background: transparent;
+  border: 2px solid #00ff88;
+  color: #00ff88;
+  font-size: 13px;
+  letter-spacing: 3px;
+  cursor: pointer;
+  font-family: "Courier New", monospace;
+  font-weight: 900;
+  transition: all 0.15s;
+  border-radius: 2px;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  background: #00ff88 !important;
+  color: #0a0a0f !important;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.snake-controls {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  opacity: 0.35;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #00ff88;
+}
