@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import "./SnakeGame.css";
+import "./App.css";
 
 const GRID_SIZE = 20;
 const CELL_SIZE = 28;
